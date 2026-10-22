@@ -1,0 +1,468 @@
+/* ==========================================================================
+   VARIABLES DE COLOR (Fondo Negro, Texto Blanco y Azul #345b8f Dominante)
+   ========================================================================== */
+:root {
+    --color-primary: #345b8f;         /* El azul protagonista */
+    --color-primary-hover: #4671a8;   /* Azul más claro para efectos hover */
+    --color-primary-dark: #1f395c;    /* Azul oscuro para sombras, bordes y submenús */
+    
+    --color-bg-black: #0a0a0a;        /* Fondo negro absoluto */
+    --color-bg-card: #141414;         /* Negro ligeramente más claro para tarjetas */
+    --color-bg-sections: #1a1a1a;     /* Bloques oscuros de contenido */
+    --color-bg-trans-dark: rgba(10, 10, 10, 0.85); /* Fondo oscuro del contenedor modal */
+    
+    --color-text-white: #ffffff;      /* Blanco para texto principal (Alta legibilidad) */
+    --color-text-muted: #b3b3b3;      /* Gris claro para textos secundarios o descripciones */
+    --color-text-black: #0a0a0a;      /* Negro para contrastes controlados en hovers */
+    
+    --color-danger: #b71c1c;          /* Rojo para el botón de cerrar sesión */
+    --color-danger-hover: #d32f2f;    /* Rojo claro para el hover de cerrar sesión */
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-white); /* Texto blanco por defecto */
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Corrección: Se añade un color de respaldo (ej. #111) antes de la URL */
+    background: #111 url('../img/dondodo.png') no-repeat center center/cover fixed;
+    position: relative;
+}
+
+
+.background-image {
+    background: url('img/Imagen de WhatsApp 2025-07-23 a las 07.27.03_46045ca8.jpg') no-repeat center center/cover fixed;
+    min-height: 100vh;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Capa de superposición para tintar la imagen trasera de negro y azul */
+.background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.92), rgba(52, 91, 143, 0.45));
+    z-index: 1;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+header {
+    background-color: var(--color-primary); /* Azul dominante */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 1s ease-out;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    transition: transform 0.5s ease;
+}
+
+.logo-img:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+.logo h1 {
+    font-size: 28px;
+    color: var(--color-text-white);
+    font-weight: 700;
+    text-shadow: 2px 2px var(--color-primary-dark);
+}
+
+nav a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-bg-black); /* Contraste negro en hover */
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* ==========================================================================
+   CONTENEDOR DE PERFIL
+   ========================================================================== */
+.profile-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    z-index: 2;
+}
+
+.profile-section, .info-section {
+    text-align: center;
+    padding: 25px;
+    background: var(--color-bg-sections); /* Fondo negro suavizado */
+    border: 1px solid #222;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    margin-bottom: 25px;
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 0.8s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-section:hover, .info-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(52, 91, 143, 0.4); /* Resplandor azul en hover */
+}
+
+.profile-section h2, .info-section h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px var(--color-primary-dark);
+    color: var(--color-text-white);
+}
+
+.profile-card {
+    padding: 20px;
+    background: var(--color-bg-card); /* Fondo interno negro */
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+    border: 3px solid var(--color-primary); /* Resalte azul */
+}
+
+.profile-pic:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.profile-info {
+    text-align: center;
+}
+
+#profile-name {
+    font-size: 24px;
+    color: var(--color-text-white); /* Nombre cambiado a blanco */
+    margin-bottom: 10px;
+}
+
+#reader-level {
+    font-size: 16px;
+    color: var(--color-primary-hover); /* Nivel de lector en azul claro */
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.edit-btn {
+    background-color: var(--color-primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: var(--color-text-white);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.edit-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: var(--color-primary-hover);
+}
+
+/* Sección de Información de Cuenta */
+.info-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    padding: 15px;
+    background: var(--color-bg-card); /* Bloques en fondo negro */
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: auto;
+    min-width: 150px;
+    max-width: 45%;
+    text-align: left;
+    display: inline-block;
+}
+
+.info-label {
+    font-size: 16px;
+    color: var(--color-primary-hover); /* Etiquetas en azul claro */
+    font-weight: 600;
+    display: block;
+}
+
+.info-card p {
+    font-size: 14px;
+    color: var(--color-text-white); /* Datos en blanco puro */
+    margin-top: 5px;
+    word-break: break-word;
+}
+
+/* ==========================================================================
+   MODALES Y FORMULARIOS
+   ========================================================================== */
+.form-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-trans-dark); /* Fondo negro opaco translúcido */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.form-box {
+    background-color: var(--color-bg-card); /* Ventana interna negra */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    border: 3px solid var(--color-primary); /* Marco azul predominante */
+    animation: popIn 0.7s ease-out;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: var(--color-primary-hover);
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    animation: bounce 1.5s infinite;
+}
+
+.back-arrow:hover {
+    color: var(--color-text-white);
+    transform: scale(1.3) rotate(-10deg);
+}
+
+.form-box h3 {
+    font-size: 30px;
+    color: var(--color-text-white); /* Título del modal blanco */
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-size: 16px;
+    color: var(--color-text-muted); /* Gris claro */
+    margin-bottom: 8px;
+    text-align: left;
+    font-weight: 500;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #1e1e1e; /* Fondos de los inputs oscuros */
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-white); /* Escritura blanca */
+}
+
+form select {
+    appearance: none;
+    background: #1e1e1e url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23fff" d="M6 9L1 4h10z"/></svg>') no-repeat right 12px center;
+    cursor: pointer;
+}
+
+form input:focus, form select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(52, 91, 143, 0.5);
+}
+
+.submit-btn {
+    background-color: var(--color-primary);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 20px;
+    color: var(--color-text-white);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.submit-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: var(--color-primary-hover);
+}
+
+.logout-btn {
+    background-color: var(--color-danger);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: var(--color-text-white);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+}
+
+.logout-btn:hover {
+    transform: scale(1.1) rotate(-5deg);
+    background-color: var(--color-danger-hover);
+}
+
+/* ==========================================================================
+   ANIMACIONES Y RESPONSIVIDAD
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo h1 {
+        margin-top: 10px;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    .profile-section, .info-section {
+        margin-bottom: 15px;
+    }
+
+    .info-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .info-card {
+        max-width: 100%;
+    }
+
+    .form-box {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .form-box h3 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-section h2, .info-section h3 {
+        font-size: 24px;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    #profile-name {
+        font-size: 20px;
+    }
+
+    .edit-btn, .logout-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    form input, form select {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+}

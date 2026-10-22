@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectUS - Administrador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/adm.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-content" onclick="toggleDropdown()">
+                <img src="img/escudo.png" alt="Logo ConectUS" class="logo-img">
+                <span class="logo-text">ConectUS </span>
+            </div>
+            <div class="slogan">Conectando lectores, inspirando mentes</div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="manual-usuario.html" class="dropdown-item">Manual de usuario</a>
+                <a href="creadores.html" class="dropdown-item">Creadores</a>
+                <a href="img/mapa de procesos (1).png" class="dropdown-item">Mapa</a>
+            </div>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="adm.html">Inicio</a>
+            <a href="admNovedades.html">Novedades</a>
+            <a href="admCatalogo.html">catalogo</a>
+            <a href="perfil.html" class="nav-link profile-link">
+                <div class="dropdown">
+                <a href="#" class="nav-link" onclick="toggleReservationsDropdown(event)">Gestion</a>
+                <div class="reservations-dropdown" id="reservationsDropdown">
+                    <a href="admReservas.html" class="dropdown-item">Reservas</a>
+                    <a href="admLibros.html" class="dropdown-item">Libros</a>
+                    <a href="admDonaciones.html" class="dropdown-item">Donaciones</a>
+                    <a href="admUsuarios.html" class="dropdown-item">Usuarios</a>
+                </div>
+            </div>
+            <a href="perfil.html" class="nav-link profile-link">
+                <svg class="profile-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M12 12c-3.3 0-6 2.7-6 6v2h12v-2c0-3.3-2.7-6-6-6z"/>
+                </svg>
+                Perfil
+            </a>
+        </nav>
+       
+        <nav id="nav-menu">
+            </nav>
+
+        <button class="menu-toggle" aria-label="Alternar menú" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <section class="admin-container">
+        <h1>Panel de Administración</h1>
+
+        <div class="admin-section" id="books">
+            <h2>Gestionar Libros</h2>
+            <a href="#" class="add-btn" onclick="openModal('bookModal')">Agregar Libro</a>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Editorial</th>
+                        <th>Año de publicacion</th>
+                        <th>Idioma</th>
+                        <th>Categoría</th>
+                        <th>Disponibilidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>El Código Da Vinci</td>
+                        <td>Dan Brown</td>
+                        <td>premium</td>
+                        <td>Dan 2003</td>
+                        <td> Español </td>
+                        <td>Ficción</td>
+                        <td>Disponible</td>
+                        <td>
+                            <button class="admin-btn" onclick="openEditModal('bookModal', 'El Código Da Vinci')">Editar</button>
+                            <button class="admin-btn delete" onclick="deleteItem('libro', 'El Código Da Vinci')">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Harry Potter y la Piedra Filosofal</td>
+                        <td>J.K. Rowling</td>
+                        <td>howards +</td>
+                        <td>2000</td>
+                        <td> Español </td>
+                        <td>Infantil</td>
+                        <td>Reservado</td>
+                        <td>
+                            <button class="admin-btn" onclick="openEditModal('bookModal', 'Harry Potter')">Editar</button>
+                            <button class="admin-btn delete" onclick="deleteItem('libro', 'Harry Potter')">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <h3>Agregar/Editar Libro</h3>
+            <form>
+                <input type="text" id="bookTitle" placeholder="Título" required>
+                <input type="text" id="bookAuthor" placeholder="Autor" required>
+                <input type="text" id="bookPublisher" placeholder="Editorial" required>
+                <input type="number" id="bookPublicationYear" placeholder="Año de publicación" required>
+                <select id="bookLanguage" required>
+                    <option value="">Selecciona un idioma</option>
+                    <option value="Español">Español</option>
+                    <option value="Inglés">Inglés</option>
+                    <option value="Francés">Francés</option>
+                </select>
+                <select id="bookCategory" required>
+                    <option value="">Selecciona una categoría</option>
+                    <option value="Ficción">Ficción</option>
+                    <option value="No Ficción">No Ficción</option>
+                    <option value="Infantil">Infantil</option>
+                </select>
+                <select id="bookAvailability" required>
+                    <option value="Disponible">Disponible</option>
+                    <option value="Reservado">Reservado</option>
+                </select>
+                <button type="button" class="admin-btn" onclick="saveItem('book')">Guardar</button>
+                <button type="button" class="admin-btn" onclick="closeModal('bookModal')">Cancelar</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ConectUS</h4>
+                <p>© 2026 Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Útiles</h4>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contáctanos</h4>
+                <p>Email: ConectUS@gmail.com</p>
+                <p>Teléfono: 3013602151</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reused scripts from index.html
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleMobileMenu() {
+            const nav = document.getElementById('nav-menu');
+            if (nav) { // Validación para evitar errores si no existe
+                nav.classList.toggle('active');
+            }
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (menuToggle) {
+                menuToggle.classList.toggle('active');
+            }
+        }
+
+        // Admin-specific scripts
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function openEditModal(modalId, itemName, itemTime) {
+            openModal(modalId);
+            if (modalId === 'bookModal') {
+                document.getElementById('bookTitle').value = itemName;
+            } else if (modalId === 'spaceModal') {
+                document.getElementById('spaceName').value = itemName;
+                document.getElementById('spaceTime').value = itemTime || '';
+            } else if (modalId === 'userModal') {
+                document.getElementById('userName').value = itemName;
+            }
+        }
+
+        // CORRECCIÓN: Se cambiaron las comillas rotas por Template Literals (``)
+        function saveItem(type) {
+            alert(`Guardando ${type}... (Funcionalidad no implementada)`);
+            closeModal(type + 'Modal');
+        }
+
+        function deleteItem(type, itemName) {
+            if (confirm(`¿Seguro que desea eliminar ${type} "${itemName}"?`)) {
+                alert(`${type} "${itemName}" eliminado (Funcionalidad no implementada)`);
+            }
+        }
+
+        // Close modals when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

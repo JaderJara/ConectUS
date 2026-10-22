@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creadores - ConectUS</title>
+    <!-- Fuentes tipográficas -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tus estilos generales del catálogo -->
+    <link rel="stylesheet" href="CSS/catalogo.css">
+    <!-- El nuevo archivo de estilos específico para esta vista -->
+    <link rel="stylesheet" href="CSS/creadores.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-content">
+                <img src="img/escudo.png" alt="Logo ConectUS" class="logo-img">
+                <h1>ConectUS</h1>
+            </div>
+            <div class="slogan">Conectando lectores, inspirando mentes</div>
+        </div>
+        </div>
+        <nav id="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="perfil.html" class="nav-link profile-link">
+                <svg class="profile-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M12 12c-3.3 0-6 2.7-6 6v2h12v-2c0-3.3-2.7-6-6-6z"/>
+                </svg>
+                Perfil
+            </a>
+        </nav>
+        <button class="menu-toggle" aria-label="Alternar menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main class="creators-container">
+        <section class="creators-header">
+            <h2>Equipo de Creadores</h2>
+            <p>Las mentes brillantes detrás del desarrollo y gestión de ConectUS. Haz clic en una tarjeta para saber más.</p>
+        </section>
+
+        <section class="creators-grid-section">
+            <div class="creators-grid">
+                
+                <!-- INTEGRANTE 1 -->
+                <div class="creator-item">
+                    <div class="book-card creator-card">
+                        <input type="checkbox" class="flip-toggle" id="creator-flip1" hidden>
+                        <label class="book-inner" for="creator-flip1">
+                            <div class="book-front">
+                                <img src="img/alejo.png" alt="Foto de Participante 1">
+                            </div>
+                            <div class="book-back">
+                                <div class="book-info-content">
+                                    <h3>Sobre mí</h3>
+                                    <p class="synopsis">Artista independiente que fusiona fotografía, edición digital y narrativa para dar vida a mundos fantásticos. Creo piezas visuales únicas y sesiones temáticas que transforman la realidad en pura imaginación.</p>
+                                    <ul class="metadata-list">
+                                        <li><strong>Rol:</strong> Desarrollador Frontend</li>
+                                        <li><strong>Especialidad:</strong> HTML / CSS </li>
+                                        <li><strong>Libro Favorito:</strong> La metamorfosis</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="creator-name">Alejandro Uribe Arcila</div>
+                </div>
+
+                <!-- INTEGRANTE 2 -->
+                <div class="creator-item">
+                    <div class="book-card creator-card">
+                        <input type="checkbox" class="flip-toggle" id="creator-flip2" hidden>
+                        <label class="book-inner" for="creator-flip2">
+                            <div class="book-front">
+                                <img src="img/jader.png" alt="Foto de Participante 2">
+                            </div>
+                            <div class="book-back">
+                                <div class="book-info-content">
+                                    <h3>Sobre mí</h3>
+                                    <p class="synopsis">Creador visual y amante de la tecnología, inspirado por los mundos inmersivos de videojuegos single player como Cyberpunk 2077,fusionando mi pasión por el neón, la narrativa de ciencia ficción y la innovación digital y Rebecca.</p>
+                                    <ul class="metadata-list">
+                                        <li><strong>Rol:</strong> Diseñador UI/UX</li>
+                                        <li><strong>Especialidad:</strong> Drive / Exel</li>
+                                        <li><strong>Libro Favorito:</strong> viaje al oeste</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="creator-name">Jader Alexis Jaramillo</div>
+                </div>
+
+                <!-- INTEGRANTE 3 -->
+                <div class="creator-item">
+                    <div class="book-card creator-card">
+                        <input type="checkbox" class="flip-toggle" id="creator-flip3" hidden>
+                        <label class="book-inner" for="creator-flip3">
+                            <div class="book-front">
+                                <img src="img/salgueiro.png" alt="Foto de Participante 3">
+                            </div>
+                            <div class="book-back">
+                                <div class="book-info-content">
+                                    <h3>Sobre mí</h3>
+                                    <p class="synopsis">me parcho </p>
+                                    <ul class="metadata-list">
+                                        <li><strong>Rol:</strong> Desarrollador Backend</li>
+                                        <li><strong>Especialidad:</strong> Motores de Base de Datos</li>
+                                        <li><strong>Libro Favorito:</strong> el libro troll del ruvius </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="creator-name">Santiago Salgueiro Herrera</div>
+                </div>
+
+                <!-- INTEGRANTE 4 -->
+                <div class="creator-item">
+                    <div class="book-card creator-card">
+                        <input type="checkbox" class="flip-toggle" id="creator-flip4" hidden>
+                        <label class="book-inner" for="creator-flip4">
+                            <div class="book-front">
+                                <img src="img/escudo.png" alt="Foto de Participante 4">
+                            </div>
+                            <div class="book-back">
+                                <div class="book-info-content">
+                                    <h3>Sobre nosotros</h3>
+                                    <p class="synopsis"> Conectando emociones profundas a través del sonido y traduciendo el mundo entero en acordes. Exploradores sonoros que no conciben un solo momento del día sin música en los oídos.</p>
+                                    <ul class="metadata-list">
+                                    </ul>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="creator-name"> datos curiosos </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ConectUS</h4>
+                <p>© 2026 Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Útiles</h4>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contáctanos</h4>
+                <p>Email: ConectUS@gmail.com</p>
+                <p>Teléfono: 3013602151</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/catalogo.js"></script>
+</body>
+</html>

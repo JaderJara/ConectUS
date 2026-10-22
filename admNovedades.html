@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades - ConectUS </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/novedades.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-content" onclick="toggleDropdown()">
+                <img src="img/escudo.png" alt="Logo ConectUS" class="logo-img">
+                <span class="logo-text">ConectUS </span>
+            </div>
+            <div class="slogan">Conectando lectores, inspirando mentes</div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="manual-usuario.html" class="dropdown-item">Manual de usuario</a>
+                <a href="creadores.html" class="dropdown-item">Creadores</a>
+                <a href="img/mapa de procesos (1).png" class="dropdown-item">Mapa</a>
+            </div>
+        </div>
+        <nav id="nav-menu">
+            <a href="adm.html">Inicio</a>
+            <a href="admNovedades.html">Novedades</a>
+            <a href="admCatalogo.html">catalogo</a>
+            <a href="perfil.html" class="nav-link profile-link">
+                <div class="dropdown">
+                <a href="#" class="nav-link" onclick="toggleReservationsDropdown(event)">Gestion</a>
+                <div class="reservations-dropdown" id="reservationsDropdown">
+                    <a href="admReservas.html" class="dropdown-item">Reservas</a>
+                    <a href="admLibros.html" class="dropdown-item">Libros</a>
+                    <a href="admDonaciones.html" class="dropdown-item">Donaciones</a>
+                    <a href="admUsuarios.html" class="dropdown-item">Usuarios</a>
+                </div>
+            <a href="perfil.html" class="nav-link profile-link">
+                <svg class="profile-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M12 12c-3.3 0-6 2.7-6 6v2h12v-2c0-3.3-2.7-6-6-6z"/>
+                </svg>
+                Perfil
+            </a>
+        </nav>
+        <button class="menu-toggle" aria-label="Alternar menú" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>¡Feria del Libro 2026!</h2>
+            <p>Del 15 al 20 de octubre de 2026. Explora nuevos libros, recursos para nuestros usuarios. ¡Únete a la aventura del conocimiento!</p>
+            <button class="explore-btn">Explorar Ahora</button>
+        </div>
+    </section>
+
+    <section class="novelties">
+        <h2>Novedades Destacadas</h2>
+        <div class="novelties-grid">
+            <div class="novelty-card">
+                <input type="checkbox" class="flip-toggle" id="novelty-flip1" hidden>
+                <label class="novelty-inner" for="novelty-flip1">
+                    <div class="novelty-front">
+                        <img src="img libros/On the Wings of La Noche.jpg" alt="On the Wings of La Noche">
+                    </div>
+                    <div class="novelty-back">
+                        <p>Una historia conmovedora: Noche, convertida en lechuza tras la muerte accidental de su novia, acompaña su alma en su tránsito al más allá. Pero cuando conoce a Jax, comienza a cuestionar su deber y su capacidad de seguir adelante.</p>
+                    </div>
+                </label>
+            </div>
+            <div class="novelty-card">
+                <input type="checkbox" class="flip-toggle" id="novelty-flip2" hidden>
+                <label class="novelty-inner" for="novelty-flip2">
+                    <div class="novelty-front">
+                        <img src="img libros/The Whisperwood Legacy.jpeg" alt="The Whisperwood Legacy">
+                    </div>
+                    <div class="novelty-back">
+                        <p>Fantasía oscura ambientada en un parque temático familiar, con desapariciones, secretos y misterio.</p>
+                    </div>
+                </label>
+            </div>
+            <div class="novelty-card">
+                <input type="checkbox" class="flip-toggle" id="novelty-flip3" hidden>
+                <label class="novelty-inner" for="novelty-flip3">
+                    <div class="novelty-front">
+                        <img src="img libros/Traumaland.jpeg" alt="Traumaland">
+                    </div>
+                    <div class="novelty-back">
+                        <p>Thriller de realidad virtual con mucha tensión.</p>
+                    </div>
+                </label>
+            </div>
+            <div class="novelty-card">
+                <input type="checkbox" class="flip-toggle" id="novelty-flip4" hidden>
+                <label class="novelty-inner" for="novelty-flip4">
+                    <div class="novelty-front">
+                        <img src="img libros/images.jpeg" alt="Nueva novela histórica">
+                    </div>
+                    <div class="novelty-back">
+                        <p>Nueva entrega de The Hunger Games, ambientada en el 50.º Juegos del Hambre.</p>
+                    </div>
+                </label>
+            </div>
+            <div class="novelty-card">
+                <input type="checkbox" class="flip-toggle" id="novelty-flip5" hidden>
+                <label class="novelty-inner" for="novelty-flip5">
+                    <div class="novelty-front">
+                        <img src="img libros/Everything Is Poison.jpg" alt="Nuevo thriller psicológico">
+                    </div>
+                    <div class="novelty-back">
+                        <p>Verso y prosa en un thriller histórico sobre envenenamientos.</p>
+                    </div>
+                </label>
+            </div>
+            <div class="novelty-card">
+                <input type="checkbox" class="flip-toggle" id="novelty-flip6" hidden>
+                <label class="novelty-inner" for="novelty-flip6">
+                    <div class="novelty-front">
+                        <img src="img libros/images (1).jpeg" alt="So Let Them Burn">
+                    </div>
+                    <div class="novelty-back">
+                        <p>Fantasía juvenil con fuego, poder y transformación.</p>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <section class="top-borrowed">
+        <h2>Libros Más Prestados</h2>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="books-track">
+                    <!-- Tarjetas originales -->
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip1" hidden>
+                        <label class="book-inner" for="borrowed-flip1">
+                            <div class="book-front">
+                                <img src="img libros/Harry Potter.gif" alt="Harry Potter">
+                            </div>
+                            <div class="book-back">
+                                <p>Harry Potter trata de un niño huérfano que descubre que es mago y estudia en el colegio de magia Hogwarts. Allí hace amigos, aprende hechicería y enfrenta muchos peligros. Su mayor enemigo es Lord Voldemort, un mago oscuro que mató a sus padres y quiere dominar el mundo mágico.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip2" hidden>
+                        <label class="book-inner" for="borrowed-flip2">
+                            <div class="book-front">
+                                <img src="img libros/1984.webp" alt="1984">
+                            </div>
+                            <div class="book-back">
+                                <p>1984, de George Orwell, trata de una sociedad futura dominada por un régimen totalitario encabezado por el Gran Hermano, donde no existen la libertad ni la privacidad. El protagonista, Winston Smith, trabaja manipulando la verdad en el Ministerio de la Verdad, pero comienza a cuestionar el control absoluto del Estado.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip3" hidden>
+                        <label class="book-inner" for="borrowed-flip3">
+                            <div class="book-front">
+                                <img src="img libros/El Principito.jpeg" alt="El Principito">
+                            </div>
+                            <div class="book-back">
+                                <p>El Principito, de Antoine de Saint-Exupéry, trata de un pequeño príncipe que viaja por distintos planetas y conoce a varios personajes que representan actitudes de los adultos (como el rey, el vanidoso o el hombre de negocios). Finalmente llega a la Tierra, donde entabla una profunda amistad con un aviador y aprende de un zorro que “lo esencial es invisible a los ojos”.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip4" hidden>
+                        <label class="book-inner" for="borrowed-flip4">
+                            <div class="book-front">
+                                <img src="img libros/El Hobbit.jpeg" alt="El Hobbit">
+                            </div>
+                            <div class="book-back">
+                                <p>Una aventura épica de Bilbo Bolsón en un mundo de fantasía.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip5" hidden>
+                        <label class="book-inner" for="borrowed-flip5">
+                            <div class="book-front">
+                                <img src="img libros/Matar a un Ruiseñor.jpeg" alt="Matar a un Ruiseñor">
+                            </div>
+                            <div class="book-back">
+                                <p>Un drama sobre racismo y justicia en el sur de Estados Unidos.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip6" hidden>
+                        <label class="book-inner" for="borrowed-flip6">
+                            <div class="book-front">
+                                <img src="img libros/Crimen y Castigo.webp" alt="Crimen y Castigo">
+                            </div>
+                            <div class="book-back">
+                                <p>Un estudiante comete un asesinato y enfrenta las consecuencias morales.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip7" hidden>
+                        <label class="book-inner" for="borrowed-flip7">
+                            <div class="book-front">
+                                <img src="img libros/descarga.jpeg" alt="El Gran Gatsby">
+                            </div>
+                            <div class="book-back">
+                                <p>Una historia de amor y ambición en la América de los años 20.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- Tarjetas duplicadas para bucle infinito -->
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip8" hidden>
+                        <label class="book-inner" for="borrowed-flip8">
+                            <div class="book-front">
+                                <img src="img libros/Harry Potter.gif" alt="Harry Potter">
+                            </div>
+                            <div class="book-back">
+                                <p>Harry Potter trata de un niño huérfano que descubre que es mago y estudia en el colegio de magia Hogwarts. Allí hace amigos, aprende hechicería y enfrenta muchos peligros. Su mayor enemigo es Lord Voldemort, un mago oscuro que mató a sus padres y quiere dominar el mundo mágico.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip9" hidden>
+                        <label class="book-inner" for="borrowed-flip9">
+                            <div class="book-front">
+                                <img src="img libros/1984.webp" alt="1984">
+                            </div>
+                            <div class="book-back">
+                                <p>1984, de George Orwell, trata de una sociedad futura dominada por un régimen totalitario encabezado por el Gran Hermano, donde no existen la libertad ni la privacidad. El protagonista, Winston Smith, trabaja manipulando la verdad en el Ministerio de la Verdad, pero comienza a cuestionar el control absoluto del Estado.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip10" hidden>
+                        <label class="book-inner" for="borrowed-flip10">
+                            <div class="book-front">
+                                <img src="img libros/El Principito.jpeg" alt="El Principito">
+                            </div>
+                            <div class="book-back">
+                                <p>El Principito, de Antoine de Saint-Exupéry, trata de un pequeño príncipe que viaja por distintos planetas y conoce a varios personajes que representan actitudes de los adultos (como el rey, el vanidoso o el hombre de negocios). Finalmente llega a la Tierra, donde entabla una profunda amistad con un aviador y aprende de un zorro que “lo esencial es invisible a los ojos”.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip11" hidden>
+                        <label class="book-inner" for="borrowed-flip11">
+                            <div class="book-front">
+                                <img src="img libros/El Hobbit.jpeg" alt="El Hobbit">
+                            </div>
+                            <div class="book-back">
+                                <p>Una aventura épica de Bilbo Bolsón en un mundo de fantasía.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip12" hidden>
+                        <label class="book-inner" for="borrowed-flip12">
+                            <div class="book-front">
+                                <img src="img libros/Matar a un Ruiseñor.jpeg" alt="Matar a un Ruiseñor">
+                            </div>
+                            <div class="book-back">
+                                <p>Un drama sobre racismo y justicia en el sur de Estados Unidos.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip13" hidden>
+                        <label class="book-inner" for="borrowed-flip13">
+                            <div class="book-front">
+                                <img src="img libros/Crimen y Castigo.webp" alt="Crimen y Castigo">
+                            </div>
+                            <div class="book-back">
+                                <p>Un estudiante comete un asesinato y enfrenta las consecuencias morales.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="borrowed-flip14" hidden>
+                        <label class="book-inner" for="borrowed-flip14">
+                            <div class="book-front">
+                                <img src="img libros/descarga.jpeg" alt="El Gran Gatsby">
+                            </div>
+                            <div class="book-back">
+                                <p>Una historia de amor y ambición en la América de los años 20.</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="top-read">
+        <h2>Libros Más Leídos</h2>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="books-track">
+                    <!-- Tarjetas originales -->
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip1" hidden>
+                        <label class="book-inner" for="read-flip1">
+                            <div class="book-front">
+                                <img src="img libros/Don Quijote de la Mancha.jpeg" alt="Don Quijote de la Mancha">
+                            </div>
+                            <div class="book-back">
+                                <p>Las aventuras de un caballero y su escudero en la España del siglo XVII.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip2" hidden>
+                        <label class="book-inner" for="read-flip2">
+                            <div class="book-front">
+                                <img src="img libros/Orgullo y Prejuicio.png" alt="Orgullo y Prejuicio">
+                            </div>
+                            <div class="book-back">
+                                <p>Una historia romántica que explora el amor y las clases sociales.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip3" hidden>
+                        <label class="book-inner" for="read-flip3">
+                            <div class="book-front">
+                                <img src="img libros/Crónica de una Muerte Anunciada.jpeg" alt="Crónica de una Muerte Anunciada">
+                            </div>
+                            <div class="book-back">
+                                <p>Un asesinato anunciado en un pequeño pueblo caribeño.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip4" hidden>
+                        <label class="book-inner" for="read-flip4">
+                            <div class="book-front">
+                                <img src="img libros/El Código Da Vinci.webp" alt="El Código Da Vinci">
+                            </div>
+                            <div class="book-back">
+                                <p>Un thriller de misterio sobre símbolos y conspiraciones históricas.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip5" hidden>
+                        <label class="book-inner" for="read-flip5">
+                            <div class="book-front">
+                                <img src="img libros/Harry Potter y la Piedra Filosofal.jpeg" alt="Harry Potter y la Piedra Filosofal">
+                            </div>
+                            <div class="book-back">
+                                <p>Un joven mago descubre su destino en un mundo mágico.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip6" hidden>
+                        <label class="book-inner" for="read-flip6">
+                            <div class="book-front">
+                                <img src="img libros/Las Crónicas de Narnia.webp" alt="Las Crónicas de Narnia">
+                            </div>
+                            <div class="book-back">
+                                <p>Niños descubren un mundo fantástico lleno de aventuras.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip7" hidden>
+                        <label class="book-inner" for="read-flip7">
+                            <div class="book-front">
+                                <img src="img libros/El Perfume.gif" alt="El Perfume">
+                            </div>
+                            <div class="book-back">
+                                <p>Un asesino obsesionado con crear el perfume perfecto.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- Tarjetas duplicadas para bucle infinito -->
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip8" hidden>
+                        <label class="book-inner" for="read-flip8">
+                            <div class="book-front">
+                                <img src="img libros/Don Quijote de la Mancha.jpeg" alt="Don Quijote de la Mancha">
+                            </div>
+                            <div class="book-back">
+                                <p>Las aventuras de un caballero y su escudero en la España del siglo XVII.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip9" hidden>
+                        <label class="book-inner" for="read-flip9">
+                            <div class="book-front">
+                                <img src="img libros/Orgullo y Prejuicio.png" alt="Orgullo y Prejuicio">
+                            </div>
+                            <div class="book-back">
+                                <p>Una historia romántica que explora el amor y las clases sociales.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip10" hidden>
+                        <label class="book-inner" for="read-flip10">
+                            <div class="book-front">
+                                <img src="img libros/Crónica de una Muerte Anunciada.jpeg" alt="Crónica de una Muerte Anunciada">
+                            </div>
+                            <div class="book-back">
+                                <p>Un asesinato anunciado en un pequeño pueblo caribeño.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip11" hidden>
+                        <label class="book-inner" for="read-flip11">
+                            <div class="book-front">
+                                <img src="img libros/El Código Da Vinci.webp" alt="El Código Da Vinci">
+                            </div>
+                            <div class="book-back">
+                                <p>Un thriller de misterio sobre símbolos y conspiraciones históricas.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip12" hidden>
+                        <label class="book-inner" for="read-flip12">
+                            <div class="book-front">
+                                <img src="img libros/Harry Potter y la Piedra Filosofal.jpeg" alt="Harry Potter y la Piedra Filosofal">
+                            </div>
+                            <div class="book-back">
+                                <p>Un joven mago descubre su destino en un mundo mágico.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip13" hidden>
+                        <label class="book-inner" for="read-flip13">
+                            <div class="book-front">
+                                <img src="img libros/Las Crónicas de Narnia.webp" alt="Las Crónicas de Narnia">
+                            </div>
+                            <div class="book-back">
+                                <p>Niños descubren un mundo fantástico lleno de aventuras.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="read-flip14" hidden>
+                        <label class="book-inner" for="read-flip14">
+                            <div class="book-front">
+                                <img src="img libros/El Perfume.gif" alt="El Perfume">
+                            </div>
+                            <div class="book-back">
+                                <p>Un asesino obsesionado con crear el perfume perfecto.</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="top-recommended">
+        <h2>Libros Más Recomendados</h2>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="books-track">
+                    <!-- Tarjetas originales -->
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip1" hidden>
+                        <label class="book-inner" for="recommended-flip1">
+                            <div class="book-front">
+                                <img src="img libros/De Animales a Dioses.jpeg" alt="Sapiens: De Animales a Dioses">
+                            </div>
+                            <div class="book-back">
+                                <p>Un recorrido por la historia de la humanidad desde sus orígenes.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip2" hidden>
+                        <label class="book-inner" for="recommended-flip2">
+                            <div class="book-front">
+                                <img src="img libros/El Alquimista.jpeg" alt="El Alquimista">
+                            </div>
+                            <div class="book-back">
+                                <p>La búsqueda de un joven por su destino y un tesoro mítico.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip3" hidden>
+                        <label class="book-inner" for="recommended-flip3">
+                            <div class="book-front">
+                                <img src="img libros/La Sombra del Viento.jpg" alt="La Sombra del Viento">
+                            </div>
+                            <div class="book-back">
+                                <p>Un joven descubre un libro misterioso en la Barcelona de posguerra.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip4" hidden>
+                        <label class="book-inner" for="recommended-flip4">
+                            <div class="book-front">
+                                <img src="img libros/El Paciente Silencioso.jpeg" alt="El Paciente Silencioso">
+                            </div>
+                            <div class="book-back">
+                                <p>Un thriller sobre una mujer que no habla tras un crimen.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip5" hidden>
+                        <label class="book-inner" for="recommended-flip5">
+                            <div class="book-front">
+                                <img src="img libros/Homo Deus.jpeg" alt="Homo Deus">
+                            </div>
+                            <div class="book-back">
+                                <p>Explora el futuro de la humanidad y la tecnología.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip6" hidden>
+                        <label class="book-inner" for="recommended-flip6">
+                            <div class="book-front">
+                                <img src="img libros/El Laberinto de los Espíritus.jpeg" alt="El Laberinto de los Espíritus">
+                            </div>
+                            <div class="book-back">
+                                <p>Un misterio literario en la Barcelona del siglo XX.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip7" hidden>
+                        <label class="book-inner" for="recommended-flip7">
+                            <div class="book-front">
+                                <img src="img libros/El Silmarillion.jpeg" alt="El Silmarillion">
+                            </div>
+                            <div class="book-back">
+                                <p>Mitología y orígenes del universo de Tolkien.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- Tarjetas duplicadas para bucle infinito -->
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip8" hidden>
+                        <label class="book-inner" for="recommended-flip8">
+                            <div class="book-front">
+                                <img src="img libros/De Animales a Dioses.jpeg" alt="Sapiens: De Animales a Dioses">
+                            </div>
+                            <div class="book-back">
+                                <p>Un recorrido por la historia de la humanidad desde sus orígenes.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip9" hidden>
+                        <label class="book-inner" for="recommended-flip9">
+                            <div class="book-front">
+                                <img src="img libros/El Alquimista.jpeg" alt="El Alquimista">
+                            </div>
+                            <div class="book-back">
+                                <p>La búsqueda de un joven por su destino y un tesoro mítico.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip10" hidden>
+                        <label class="book-inner" for="recommended-flip10">
+                            <div class="book-front">
+                                <img src="img libros/La Sombra del Viento.jpg" alt="La Sombra del Viento">
+                            </div>
+                            <div class="book-back">
+                                <p>Un joven descubre un libro misterioso en la Barcelona de posguerra.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip11" hidden>
+                        <label class="book-inner" for="recommended-flip11">
+                            <div class="book-front">
+                                <img src="img libros/El Paciente Silencioso.jpeg" alt="El Paciente Silencioso">
+                            </div>
+                            <div class="book-back">
+                                <p>Un thriller sobre una mujer que no habla tras un crimen.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip12" hidden>
+                        <label class="book-inner" for="recommended-flip12">
+                            <div class="book-front">
+                                <img src="img libros/Homo Deus.jpeg" alt="Homo Deus">
+                            </div>
+                            <div class="book-back">
+                                <p>Explora el futuro de la humanidad y la tecnología.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip13" hidden>
+                        <label class="book-inner" for="recommended-flip13">
+                            <div class="book-front">
+                                <img src="img libros/El Laberinto de los Espíritus.jpeg" alt="El Laberinto de los Espíritus">
+                            </div>
+                            <div class="book-back">
+                                <p>Un misterio literario en la Barcelona del siglo XX.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="book-card">
+                        <input type="checkbox" class="flip-toggle" id="recommended-flip14" hidden>
+                        <label class="book-inner" for="recommended-flip14">
+                            <div class="book-front">
+                                <img src="img libros/El Silmarillion.jpeg" alt="El Silmarillion">
+                            </div>
+                            <div class="book-back">
+                                <p>Mitología y orígenes del universo de Tolkien.</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ConectUS </h4>
+                <p>© 2026 Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Útiles</h4>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contáctanos</h4>
+                <p>Email: ConectUS@gmail.com</p>
+                <p>Teléfono: 3013602151</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

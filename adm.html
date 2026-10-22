@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectUS - Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-content" onclick="toggleDropdown()">
+                <img src="img/escudo.png" alt="Logo ConectUS" class="logo-img">
+                <span class="logo-text">ConectUS </span>
+            </div>
+            <div class="slogan">Conectando lectores, inspirando mentes</div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="manual-usuario.html" class="dropdown-item">Manual de usuario</a>
+                <a href="creadores.html" class="dropdown-item">Creadores</a>
+                <a href="img/mapa de procesos (1).png" class="dropdown-item">Mapa</a>
+            </div>
+        </div>
+        <nav id="nav-menu">
+            <a href="adm.html">Inicio</a>
+            <a href="admNovedades.html">Novedades</a>
+            <a href="admCatalogo.html">catalogo</a>
+            <a href="perfil.html" class="nav-link profile-link">
+                <div class="dropdown">
+                <a href="#" class="nav-link" onclick="toggleReservationsDropdown(event)">Gestion</a>
+                <div class="reservations-dropdown" id="reservationsDropdown">
+                    <a href="admReservas.html" class="dropdown-item">Reservas</a>
+                    <a href="admLibros.html" class="dropdown-item">Libros</a>
+                    <a href="admDonaciones.html" class="dropdown-item">Donaciones</a>
+                    <a href="admUsuarios.html" class="dropdown-item">Usuarios</a>
+                </div>
+            </div>
+                <svg class="profile-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M12 12c-3.3 0-6 2.7-6 6v2h12v-2c0-3.3-2.7-6-6-6z"/>
+                </svg>
+                Perfil
+            </a>
+        </nav>
+        <button class="menu-toggle" aria-label="Alternar menú" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a ConectUS </h1>
+            <p>Descubre un mundo de conocimiento con miles de libros a tu alcance</p>
+            <button class="explore-btn" onclick="scrollToCategories()">Explorar Ahora</button>
+        </div>
+    </section>
+
+    <section class="categories" id="categories">
+        <h2>Instalaciones</h2>
+        <div class="carousel">
+            <button class="carousel-control prev" onclick="prevSlide()" aria-label="Anterior">&#10094;</button>
+            <div class="carousel-container">
+                <div class="category-grid">
+                    <div class="category-card">
+                        <img src="img/espacio.png" alt="Sala de Lectura">
+                        <div class="category-info">
+                            <h3>Sala de Lectura</h3>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="img/niños.png" alt="">
+                        <div class="category-info">
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="img/descarga.png" alt="">
+                        <div class="category-info">
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="img/La-biblioteca.png" alt="">
+                        <div class="category-info">
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="img/Biblioteca Ncional.png" alt="">
+                        <div class="category-info">
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control next" onclick="nextSlide()" aria-label="Siguiente">&#10095;</button>
+        </div>
+    </section>
+
+    <section class="highlights">
+        <h2>Datos curiosos</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card" onclick="flipCard(this)">
+                <div class="highlight-inner">
+                    <div class="highlight-front">
+                        <img src="img/Imagen de WhatsApp 2025-07-23 a las 07.27.03_46045ca8.jpg" alt="Dato curioso 1">
+                    </div>
+                    <div class="highlight-back">
+                        <div class="highlight-back-content">
+                            <h3>Dato Curioso</h3>
+                            <p>¿Sabías que Dan Brown se inspiró en enigmas reales para escribir El Código Da Vinci? ¡El libro incluye códigos que puedes intentar descifrar!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="highlight-card" onclick="flipCard(this)">
+                <div class="highlight-inner">
+                    <div class="highlight-front">
+                        <img src="img/Imagen de WhatsApp 2025-07-23 a las 07.27.03_46045ca8.jpg" alt="Harry Potter">
+                    </div>
+                    <div class="highlight-back">
+                        <div class="highlight-back-content">
+                            <h3>Dato Curioso</h3>
+                            <p>📚 El libro más pequeño del mundo mide solo 0,75 milímetros y contiene una versión de El viejo y el mar de Ernest Hemingway. Necesitas un microscopio para leerlo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="highlight-card" onclick="flipCard(this)">
+                <div class="highlight-inner">
+                    <div class="highlight-front">
+                        <img src="img/Imagen de WhatsApp 2025-07-23 a las 07.27.03_46045ca8.jpg" alt="Club de Lectura">
+                    </div>
+                    <div class="highlight-back">
+                        <div class="highlight-back-content">
+                            <h3>Dato Curioso</h3>
+                            <p> 📖 Leer reduce el estrés: estudios muestran que leer tan solo 6 minutos puede disminuir el nivel de estrés hasta en un 60%, más que escuchar música o dar un paseo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-vision">
+        <h2>Nuestra Misión y Visión</h2>
+        <div class="mission-vision-container">
+            <div class="mission-vision-card">
+                <h3>Misión</h3>
+                <p>Gestionar y organizar de manera eficiente el acceso a los recursos bibliográficos de la comunidad en Medellín, transformando los procesos tradicionales en un ecosistema tecnológico integral. A través del desarrollo de un software a medida soportado en lenguajes de programación modernos y bases de datos seguras, garantizamos el control de tiempos, la disponibilidad de la información en tiempo real y la optimización rigurosa de los procesos de registro, préstamos, devoluciones y donaciones digitales bajo estrictos estándares normativos y legales.</p>
+            </div>
+            <div class="mission-vision-card">
+                <h3>Visión</h3>
+                <p>Ser en el año 2031 el modelo referente de gestión bibliotecaria automatizada en la región, consolidando un sistema de información intuitivo que erradique la duplicidad y la pérdida de datos. Nos proyectamos como una organización que evoluciona mediante el monitoreo constante y la mejora continua, expandiendo de manera legal y sostenible nuestro catálogo digital y físico, logrando con ello la máxima confianza, seguridad y satisfacción de nuestros usuarios y administradores.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ConectUS</h4>
+                <p>© 2026 Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Útiles</h4>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contáctanos</h4>
+                <p>Email: ConectUS@gmail.com</p>
+                <p>Teléfono: 3013602151</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dropdown del logo
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Menú móvil
+        function toggleMobileMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+            const menuToggle = document.querySelector('.menu-toggle');
+            menuToggle.classList.toggle('active');
+        }
+
+        // Dropdown de reservas
+        function toggleReservationsDropdown(event) {
+            event.preventDefault();
+            const dropdown = document.getElementById('reservationsDropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Desplazamiento suave a la sección de categorías
+        function scrollToCategories() {
+            document.getElementById('categories').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Voltear tarjetas al hacer clic
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // Carrusel (solo manual)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.category-card');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const grid = document.querySelector('.category-grid');
+            grid.style.transform = `translateX(-${currentSlide * 20}%)`; // Move by 20% (1/5 of the grid width)
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0; // Loop back to the first slide
+            }
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides - 1; // Loop to the last slide
+            }
+            updateCarousel();
+        }
+
+        // Animación para las tarjetas de novedades al cargar
+        document.querySelectorAll('.highlight-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+            card.classList.add('animate-in');
+        });
+
+        // Desplazamiento suave para todos los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

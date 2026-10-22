@@ -1,0 +1,429 @@
+/* ==========================================================================
+   VARIABLES DE COLOR (Fondo Negro, Texto Blanco y Azul #345b8f Dominante)
+   ========================================================================== */
+:root {
+    --color-primary: #345b8f;         /* El azul protagonista */
+    --color-primary-hover: #4671a8;   /* Azul más claro para efectos hover */
+    --color-primary-dark: #1f395c;    /* Azul oscuro para sombras y submenús */
+    
+    --color-bg-black: #0a0a0a;        /* Fondo negro absoluto */
+    --color-bg-card: #141414;         /* Negro sutilmente claro para tarjetas y modales */
+    --color-bg-sections: #1a1a1a;     /* Bloques oscuros de contenido */
+    --color-bg-trans-dark: rgba(10, 10, 10, 0.85); /* Fondo oscuro del contenedor modal */
+    
+    --color-text-white: #ffffff;      /* Blanco para legibilidad impecable */
+    --color-text-muted: #b3b3b3;      /* Gris claro para descripciones o textos secundarios */
+    --color-text-black: #0a0a0a;      /* Negro para contrastes controlados (hovers) */
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-white); /* Texto blanco por defecto */
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Corrección: Se añade un color de respaldo (ej. #111) antes de la URL */
+    background: #111 url('../img/dondodo.png') no-repeat center center/cover fixed;
+    position: relative;
+}
+
+
+.background-image {
+    background: url('img/Imagen de WhatsApp 2025-07-23 a las 07.27.03_46045ca8.jpg') no-repeat center center/cover fixed;
+    min-height: 100vh;
+    flex: 1 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Capa de superposición para tintar la imagen trasera de negro y azul */
+.background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.92), rgba(52, 91, 143, 0.45));
+    z-index: 1;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+header {
+    background-color: var(--color-primary); /* Azul protagonista */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 1s ease-out;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    transition: transform 0.5s ease;
+}
+
+.logo-img:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+.logo h1 {
+    font-size: 32px;
+    color: var(--color-text-white);
+    font-weight: 700;
+    text-shadow: 2px 2px var(--color-primary-dark);
+}
+
+nav a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-bg-black); /* Contraste negro en hover */
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* ==========================================================================
+   SECCIÓN SELECCIÓN DE ROL (SELECTION CARD)
+   ========================================================================== */
+.selection {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 35px;
+    z-index: 2;
+    color: var(--color-text-white);
+    width: 100%;
+    max-width: 700px;
+    background: var(--color-bg-sections); /* Bloque oscuro translúcido */
+    border: 1px solid #333;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    animation: bounceIn 1.5s ease-in-out infinite;
+}
+
+.selection h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px var(--color-primary-dark);
+    color: var(--color-text-white);
+}
+
+.selection-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.select-btn {
+    background-color: var(--color-primary); /* Base azul de la marca */
+    padding: 18px 40px;
+    border: none;
+    border-radius: 25px;
+    color: var(--color-text-white); /* Texto blanco */
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.select-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.select-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.select-btn:hover {
+    transform: scale(1.15) rotate(3deg);
+    background-color: var(--color-primary-hover);
+    color: var(--color-text-white);
+    box-shadow: 0 8px 25px rgba(52, 91, 143, 0.5);
+}
+
+/* Modificadores de botones para consistencia de paleta (Eliminado verde/azul claro disruptivos) */
+.student-btn { background-color: var(--color-primary-dark); border: 1px solid #3b577d; }
+.student-btn:hover { background-color: var(--color-primary); }
+
+.teacher-btn { background-color: var(--color-primary); }
+.teacher-btn:hover { background-color: var(--color-primary-hover); }
+
+/* Enlace de creación de cuenta */
+.create-account {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.create-account a {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.create-account a:hover {
+    color: var(--color-text-white);
+}
+
+/* ==========================================================================
+   FORMULARIOS Y MODALES ACCESOS
+   ========================================================================== */
+.form-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-trans-dark);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+#student-form:target, #teacher-form:target, #create-account:target {
+    display: flex;
+}
+
+.form-box {
+    background-color: var(--color-bg-card); /* Caja interna negra */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    animation: popIn 0.7s ease-out;
+    position: relative;
+    border: 3px solid var(--color-primary); /* Marco azul principal */
+}
+
+.back-arrow {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: var(--color-primary-hover);
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.back-arrow:hover {
+    color: var(--color-text-white);
+}
+
+.form-box h3 {
+    font-size: 30px;
+    color: var(--color-text-white); /* Título en blanco */
+    margin-bottom: 15px;
+    text-shadow: 1px 1px var(--color-primary-dark);
+}
+
+form label {
+    display: block;
+    font-size: 16px;
+    color: var(--color-text-muted); /* Gris claro */
+    margin-bottom: 8px;
+    text-align: left;
+    font-weight: 500;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #1e1e1e; /* Cajas de texto oscuras */
+    color: var(--color-text-white); /* Escritura blanca */
+    font-family: 'Poppins', sans-serif;
+}
+
+form select {
+    appearance: none;
+    background: #1e1e1e url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23fff" d="M6 9L1 4h10z"/></svg>') no-repeat right 12px center;
+    cursor: pointer;
+}
+
+form input:focus,
+form select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(52, 91, 143, 0.5);
+}
+
+.submit-btn {
+    background-color: var(--color-primary);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 20px;
+    color: var(--color-text-white);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.submit-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: var(--color-primary-hover);
+}
+
+/* ==========================================================================
+   ANIMACIONES
+   ========================================================================== */
+@keyframes bounceIn {
+    0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+    50% { transform: translateX(-50%) translateY(-10px) scale(1.02); }
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo h1 {
+        margin-top: 10px;
+    }
+
+    nav {
+        margin-top: 15px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    .selection {
+        top: 20%;
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .selection h2 {
+        font-size: 28px;
+    }
+
+    .select-btn {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+
+    .form-box {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .form-box h3 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .selection {
+        top: 15%;
+    }
+
+    .selection h2 {
+        font-size: 24px;
+    }
+
+    .select-btn {
+        display: block;
+        margin-bottom: 15px;
+        padding: 12px 25px;
+    }
+
+    .selection-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-box h3 {
+        font-size: 20px;
+    }
+
+    form input,
+    form select {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,531 @@
+/* ==========================================================================
+   VARIABLES DE COLOR (Fondo Negro, Texto Blanco y Azul #345b8f Dominante)
+   ========================================================================== */
+:root {
+    --color-primary: #345b8f;         /* El azul protagonista */
+    --color-primary-hover: #4a73a8;   /* Azul ligeramente más claro para hovers */
+    --color-primary-dark: #1f395c;    /* Azul oscuro para sombras o submenús */
+    
+    --color-bg-black: #0a0a0a;        /* Fondo negro absoluto */
+    --color-bg-card: #141414;         /* Negro ligeramente más claro para tarjetas */
+    --color-bg-sections: #1a1a1a;     /* Variación de negro para bloques de contenido */
+    
+    --color-text-white: #ffffff;      /* Blanco para texto (Máxima legibilidad) */
+    --color-text-muted: #b3b3b3;      /* Gris claro para textos secundarios */
+}
+
+/* ==========================================================================
+   ESTILOS GENERALES Y BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-white); /* Texto blanco por defecto */
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Corrección: Se añade un color de respaldo (ej. #111) antes de la URL */
+    background: #111 url('../img/dondodo.png') no-repeat center center/cover fixed;
+    position: relative;
+}
+
+
+/* ==========================================================================
+   HEADER & NAVBAR
+   ========================================================================== */
+header {
+    background-color: var(--color-primary);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 1s ease-out;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.logo-content {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 28px;
+    color: var(--color-text-white);
+    font-weight: 700;
+    text-shadow: 2px 2px var(--color-primary-dark);
+}
+
+.slogan {
+    font-size: 14px;
+    color: var(--color-text-white);
+    text-shadow: 1px 1px var(--color-primary-dark);
+    margin-top: 5px;
+}
+
+/* Navegación */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a, .nav-link {
+    color: var(--color-text-white);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+nav a:hover, .nav-link:hover {
+    color: var(--color-bg-black);
+    transform: scale(1.1) rotate(2deg);
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-icon {
+    transition: transform 0.3s ease;
+}
+
+.profile-link:hover .profile-icon {
+    transform: scale(1.2);
+    stroke: var(--color-bg-black);
+}
+
+/* Menú Desplegable de Reservas */
+.dropdown {
+    position: relative;
+}
+
+.reservations-dropdown {
+    display: none; /* Controlado dinámicamente o por clases */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--color-primary-dark);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    min-width: 150px;
+    z-index: 1001;
+    margin-top: 5px;
+}
+
+/* Clase para activar el menú de reservas con el clic (toggle) configurado en tu HTML */
+.reservations-dropdown.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 15px;
+    color: var(--color-text-white);
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--color-primary);
+    color: var(--color-text-white);
+}
+
+/* Botón menú responsive */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--color-text-white);
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL Y ENCABEZADO DEL CATÁLOGO
+   ========================================================================== */
+.catalog-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    flex: 1;
+    animation: fadeIn 1s ease-out;
+}
+
+.catalog-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.catalog-header h2 {
+    font-size: 36px;
+    color: var(--color-text-white);
+    text-shadow: 2px 2px var(--color-primary-dark);
+    margin-bottom: 10px;
+}
+
+.catalog-header p {
+    color: var(--color-text-muted);
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   BARRA DE BÚSQUEDA Y FILTROS
+   ========================================================================== */
+.search-filter-section {
+    background-color: var(--color-bg-sections);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #222;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    animation: slideIn 0.8s ease-out;
+}
+
+/* Componentes de la barra de búsqueda */
+.search-wrapper {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.search-wrapper input {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-bg-black);
+    color: var(--color-text-white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-wrapper input:focus {
+    border-color: var(--color-primary-hover);
+    box-shadow: 0 0 8px rgba(74, 115, 168, 0.5);
+}
+
+.search-btn {
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+    border: none;
+    padding: 0 30px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.search-btn:hover {
+    background-color: var(--color-primary-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(52, 91, 143, 0.4);
+}
+
+/* Grilla de Filtros Avanzados */
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-white);
+    letter-spacing: 0.5px;
+}
+
+.filter-group input, 
+.filter-group select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: var(--color-bg-black);
+    color: var(--color-text-white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.filter-group input:focus, 
+.filter-group select:focus {
+    border-color: var(--color-primary);
+}
+
+.filter-group select option {
+    background-color: var(--color-bg-card);
+    color: var(--color-text-white);
+}
+
+/* ==========================================================================
+   CUADRÍCULA DE LIBROS (CATÁLOGO DISCOGRÁFICO/LITERARIO)
+   ========================================================================== */
+.catalog-grid-section {
+    width: 100%;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Estructura Flip Cards */
+.book-card {
+    width: 240px;
+    height: 360px;
+    perspective: 1000px;
+}
+
+.book-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    display: block;
+    cursor: pointer;
+}
+
+/* Girar al marcar el checkbox */
+.flip-toggle:checked + .book-inner {
+    transform: rotateY(180deg);
+}
+
+.book-front, .book-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border: 2px solid var(--color-primary);
+    overflow: hidden;
+}
+
+/* Cara Frontal */
+.book-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover .book-front img {
+    transform: scale(1.03);
+}
+
+/* Cara Trasera (Información y Detalles) */
+.book-back {
+    background: var(--color-bg-card);
+    transform: rotateY(180deg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.book-info-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-text-white);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 5px;
+}
+
+.synopsis {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.metadata-list {
+    list-style: none;
+    text-align: left;
+    margin-top: auto; /* Empuja la metadata hacia abajo */
+}
+
+.metadata-list li {
+    font-size: 12px;
+    margin-bottom: 6px;
+    color: #e0e0e0;
+}
+
+.metadata-list li strong {
+    color: var(--color-primary-hover);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    background-color: var(--color-primary);
+    padding: 40px 20px;
+    margin-top: auto;
+    border-top: 1px solid var(--color-primary-hover);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-text-white);
+    text-shadow: 1px 1px var(--color-primary-dark);
+}
+
+.footer-section p, .footer-section a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    margin: 5px 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--color-bg-black);
+}
+
+/* ==========================================================================
+   ANIMACIONES GENERALES
+   ========================================================================== */
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD (Adaptación multipantalla móvil)
+   ========================================================================== */
+@media (max-width: 992px) {
+    nav a, .nav-link {
+        font-size: 18px;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        display: none; /* Idealmente manejado añadiendo una clase activa por JS */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--color-primary-dark);
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    nav a, .nav-link {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .search-wrapper {
+        flex-direction: column;
+    }
+
+    .search-btn {
+        padding: 12px 0;
+    }
+
+    .filters-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .filters-grid {
+        grid-template-columns: 1fr;
+    }
+}

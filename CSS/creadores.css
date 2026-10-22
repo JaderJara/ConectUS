@@ -1,0 +1,132 @@
+/* ==========================================================================
+   PALETA DE COLORES PERSONALIZADA (Tonos Azul Oscuro y Negro Nocturno)
+   ========================================================================== */
+:root {
+    --bg-dark-absolute: #050505;       /* Negro casi absoluto para el fondo interno */
+    --bg-dark-card: #0d0d0d;           /* Negro azabache para las tarjetas */
+    --blue-dark-deep: #0f1c2e;         /* Azul noche profundo para bordes y sombras */
+    --blue-dark-electric: #1d3557;     /* Azul oscuro vivo para los estados interactivos (Hover) */
+    --blue-dark-glow: rgba(29, 53, 87, 0.4); /* Resplandor azul sutil */
+}
+
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL Y ENCABEZADO
+   ========================================================================== */
+.creators-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    flex: 1;
+    animation: fadeIn 1s ease-out; /* Heredado de catalogo.css */
+}
+
+.creators-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.creators-header h2 {
+    font-size: 36px;
+    color: var(--color-text-white);
+    text-shadow: 2px 2px var(--bg-dark-absolute), 0 0 10px var(--blue-dark-deep);
+    margin-bottom: 10px;
+}
+
+.creators-header p {
+    color: var(--color-text-muted);
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   ESTRUCTURA DE LA REJILLA DE INTEGRANTES
+   ========================================================================== */
+.creators-grid-section {
+    width: 100%;
+}
+
+.creators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 45px; /* Espacio extra para el resplandor y el nombre inferior */
+    justify-items: center;
+    width: 100%;
+}
+
+/* Envoltorio individual (Tarjeta + Nombre) */
+.creator-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Dimensiones específicas de la tarjeta de perfil */
+.creator-card {
+    width: 240px;
+    height: 310px;
+    perspective: 1000px;
+}
+
+/* Modificación de las caras de la tarjeta con la nueva paleta */
+.creator-card .book-front, 
+.creator-card .book-back {
+    border: 2px solid var(--blue-dark-deep);
+    background-color: var(--bg-dark-card);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Contenido de la parte trasera (Biografía) */
+.creator-card .book-back {
+    background: linear-gradient(135deg, var(--bg-dark-card) 0%, var(--bg-dark-absolute) 100%);
+}
+
+.creator-card .book-info-content h3 {
+    border-bottom: 2px solid var(--blue-dark-deep);
+}
+
+.creator-card .metadata-list li strong {
+    color: var(--color-text-white);
+    text-shadow: 0 0 5px var(--blue-dark-electric);
+}
+
+/* ==========================================================================
+   COMPORTAMIENTO INTERACTIVO (Hover & Fijos)
+   ========================================================================== */
+
+/* Nombre fijo abajo del participante */
+.creator-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-muted); /* Empieza en gris tenue para dar misterio */
+    text-align: center;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Cambios visuales al pasar el mouse sobre el elemento del creador */
+.creator-item:hover .book-front,
+.creator-item:hover .book-back {
+    border-color: var(--blue-dark-electric);
+    box-shadow: 0 10px 25px var(--blue-dark-glow), 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+.creator-item:hover .creator-name {
+    color: var(--color-text-white); /* Se ilumina en blanco puro */
+    text-shadow: 0 0 8px var(--blue-dark-electric);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD
+   ========================================================================== */
+@media (max-width: 768px) {
+    .creators-header h2 {
+        font-size: 28px;
+    }
+    
+    .creators-grid {
+        gap: 35px;
+    }
+}

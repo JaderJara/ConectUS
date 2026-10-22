@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - ConectUS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/catalogo.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-content" onclick="toggleDropdown()">
+                <img src="img/escudo.png" alt="Logo ConectUS" class="logo-img">
+                <span class="logo-text">ConectUS </span>
+            </div>
+            <div class="slogan">Conectando lectores, inspirando mentes</div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="manual-usuario.html" class="dropdown-item">Manual de usuario</a>
+                <a href="creadores.html" class="dropdown-item">Creadores</a>
+                <a href="img/mapa de procesos (1).png" class="dropdown-item">Mapa</a>
+            </div>
+        </div>
+        <nav id="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="novedades.html">Novedades</a>
+            <a href="catalogo.html">catalogo</a>
+            <div class="dropdown">
+                
+                <a href="#" class="nav-link" onclick="toggleReservationsDropdown(event)">Donaciones</a>
+                <div class="reservations-dropdown" id="reservationsDropdown">
+                    <a href="donaciones.html" class="dropdown-item">Donaciones</a>
+                    <a href="misDonaciones.html" class="dropdown-item">Mis Donados</a>
+                </div>
+                <a href="#" class="nav-link" onclick="toggleReservationsDropdown(event)">Reservas</a>
+                <div class="reservations-dropdown" id="reservationsDropdown">
+                    <a href="reservas.html" class="dropdown-item">Reservas</a>
+                    <a href="misReservas.html" class="dropdown-item">Mis Reservados</a>
+                </div>
+            </div>
+            <a href="perfil.html" class="nav-link profile-link">
+                <svg class="profile-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M12 12c-3.3 0-6 2.7-6 6v2h12v-2c0-3.3-2.7-6-6-6z"/>
+                </svg>
+                Perfil
+            </a>
+        </nav>
+        <button class="menu-toggle" aria-label="Alternar menú" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main class="catalog-container">
+        <section class="catalog-header">
+            <h2>Catálogo General de Libros</h2>
+            <p>Explora nuestra amplia colección. Utiliza los filtros para refinar tu búsqueda.</p>
+        </section>
+
+        <section class="search-filter-section">
+            <div class="search-wrapper">
+                <input type="text" id="search-input" placeholder="Buscar por título, autor o palabra clave...">
+                <button class="search-btn">Buscar</button>
+            </div>
+
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="filter-title">Título</label>
+                    <input type="text" id="filter-title" placeholder="Ej: Harry Potter">
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-author">Autor</label>
+                    <select id="filter-author">
+                        <option value="">Todos los autores</option>
+                        <option value="j-k-rowling">J.K. Rowling</option>
+                        <option value="george-orwell">George Orwell</option>
+                        <option value="saint-exupery">Antoine de Saint-Exupéry</option>
+                        <option value="j-r-r-tolkien">J.R.R. Tolkien</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-editorial">Editorial</label>
+                    <select id="filter-editorial">
+                        <option value="">Todas las editoriales</option>
+                        <option value="salamandra">Salamandra</option>
+                        <option value="debolsillo">Debolsillo</option>
+                        <option value="minotauro">Minotauro</option>
+                        <option value="alfaguara">Alfaguara</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-year">Año</label>
+                    <input type="number" id="filter-year" placeholder="Ej: 1997" min="1500" max="2026">
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-language">Idioma</label>
+                    <select id="filter-language">
+                        <option value="">Todos los idiomas</option>
+                        <option value="es">Español</option>
+                        <option value="en">Inglés</option>
+                        <option value="fr">Francés</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-category">Categoría</label>
+                    <select id="filter-category">
+                        <option value="">Todas las categorías</option>
+                        <option value="fantasia">Fantasía</option>
+                        <option value="distopia">Distopía</option>
+                        <option value="clasico">Clásico Literario</option>
+                        <option value="misterio">Misterio / Thriller</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-grid-section">
+            <div class="catalog-grid">
+                
+                <div class="book-card" data-title="Harry Potter y la Piedra Filosofal" data-author="j-k-rowling" data-editorial="salamandra" data-year="1997" data-language="es" data-category="fantasia">
+                    <input type="checkbox" class="flip-toggle" id="catalog-flip1" hidden>
+                    <label class="book-inner" for="catalog-flip1">
+                        <div class="book-front">
+                            <img src="img libros/Harry Potter.gif" alt="Harry Potter y la Piedra Filosofal">
+                        </div>
+                        <div class="book-back">
+                            <div class="book-info-content">
+                                <h3>Harry Potter y la Piedra Filosofal</h3>
+                                <p class="synopsis">Un niño huérfano descubre que es mago y asiste a Hogwarts.</p>
+                                <ul class="metadata-list">
+                                    <li><strong>Autor:</strong> J.K. Rowling</li>
+                                    <li><strong>Editorial:</strong> Salamandra</li>
+                                    <li><strong>Año:</strong> 1997</li>
+                                    <li><strong>Idioma:</strong> Español</li>
+                                    <li><strong>Categoría:</strong> Fantasía</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="book-card" data-title="1984" data-author="george-orwell" data-editorial="debolsillo" data-year="1949" data-language="es" data-category="distopia">
+                    <input type="checkbox" class="flip-toggle" id="catalog-flip2" hidden>
+                    <label class="book-inner" for="catalog-flip2">
+                        <div class="book-front">
+                            <img src="img libros/1984.webp" alt="1984">
+                        </div>
+                        <div class="book-back">
+                            <div class="book-info-content">
+                                <h3>1984</h3>
+                                <p class="synopsis">Sociedad futura dominada por un régimen totalitario encabezado por el Gran Hermano.</p>
+                                <ul class="metadata-list">
+                                    <li><strong>Autor:</strong> George Orwell</li>
+                                    <li><strong>Editorial:</strong> Debolsillo</li>
+                                    <li><strong>Año:</strong> 1949</li>
+                                    <li><strong>Idioma:</strong> Español</li>
+                                    <li><strong>Categoría:</strong> Distopía</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="book-card" data-title="El Principito" data-author="saint-exupery" data-editorial="salamandra" data-year="1943" data-language="es" data-category="clasico">
+                    <input type="checkbox" class="flip-toggle" id="catalog-flip3" hidden>
+                    <label class="book-inner" for="catalog-flip3">
+                        <div class="book-front">
+                            <img src="img libros/El Principito.jpeg" alt="El Principito">
+                        </div>
+                        <div class="book-back">
+                            <div class="book-info-content">
+                                <h3>El Principito</h3>
+                                <p class="synopsis">Un pequeño príncipe viaja por distintos planetas aprendiendo lecciones sobre la vida.</p>
+                                <ul class="metadata-list">
+                                    <li><strong>Autor:</strong> A. de Saint-Exupéry</li>
+                                    <li><strong>Editorial:</strong> Salamandra</li>
+                                    <li><strong>Año:</strong> 1943</li>
+                                    <li><strong>Idioma:</strong> Español</li>
+                                    <li><strong>Categoría:</strong> Clásico</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="book-card" data-title="El Hobbit" data-author="j-r-r-tolkien" data-editorial="minotauro" data-year="1937" data-language="en" data-category="fantasia">
+                    <input type="checkbox" class="flip-toggle" id="catalog-flip4" hidden>
+                    <label class="book-inner" for="catalog-flip4">
+                        <div class="book-front">
+                            <img src="img libros/El Hobbit.jpeg" alt="El Hobbit">
+                        </div>
+                        <div class="book-back">
+                            <div class="book-info-content">
+                                <h3>El Hobbit</h3>
+                                <p class="synopsis">La gran aventura épica de Bilbo Bolsón junto a Gandalf y los enanos.</p>
+                                <ul class="metadata-list">
+                                    <li><strong>Autor:</strong> J.R.R. Tolkien</li>
+                                    <li><strong>Editorial:</strong> Minotauro</li>
+                                    <li><strong>Año:</strong> 1937</li>
+                                    <li><strong>Idioma:</strong> Inglés</li>
+                                    <li><strong>Categoría:</strong> Fantasía</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ConectUS</h4>
+                <p>© 2026 Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Útiles</h4>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contáctanos</h4>
+                <p>Email: ConectUS@gmail.com</p>
+                <p>Teléfono: 3013602151</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

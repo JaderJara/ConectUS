@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - ConectUS </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/reservas.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-content">
+                <img src="img/escudo.png" alt="Logo ConectUS" class="logo-img">
+                <h1>ConectUS </h1>
+            </div>
+            <div class="slogan">Conectando lectores, inspirando mentes</div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#" class="dropdown-item">Manual de usuario</a>
+                <a href="#" class="dropdown-item">Servicio de ayuda</a>
+                <a href="#" class="dropdown-item">Creadores</a>
+            </div>
+        </div>
+        <nav id="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="novedades.html">Novedades</a>
+            <a href="catalogo.html">catalogo</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link" onclick="toggleReservationsDropdown(event)">Donaciones</a>
+                <div class="reservations-dropdown" id="reservationsDropdown">
+                    <a href="donaciones.html" class="dropdown-item">Donaciones</a>
+                    <a href="misDonaciones.html" class="dropdown-item">Mis Donados</a>
+                </div>
+                <a href="#" class="nav-link" onclick="toggleReservationsDropdown(event)">Reservas</a>
+                <div class="reservations-dropdown" id="reservationsDropdown">
+                    <a href="reservas.html" class="dropdown-item">Reservas</a>
+                    <a href="misReservas.html" class="dropdown-item">Mis Reservados</a>
+                </div>
+            </div>
+            
+            <a href="perfil.html" class="nav-link profile-link">
+                <svg class="profile-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M12 12c-3.3 0-6 2.7-6 6v2h12v-2c0-3.3-2.7-6-6-6z"/>
+                </svg>
+                Perfil
+            </a>
+        </nav>
+        <button class="menu-toggle" aria-label="Alternar menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    <section class="reservation-form">
+        <h2>Registrar Nueva Reserva</h2>
+        <form action="#" method="post" id="reservation-form">
+            <div class="form-group">
+                <label for="book-title">Libro</label>
+                <input type="text" id="book-title" name="book-title" placeholder="Ej: Harry Potter" required>
+            </div>
+            <div class="form-group">
+                <label for="reservation-time">Tiempo de Reserva (días)</label>
+                <input type="number" id="reservation-time" name="reservation-time" min="1" max="30" placeholder="max 8 dias" required>
+            </div>
+            <div class="form-group">
+                <label for="reservation-date">Día de Reserva</label>
+                <input type="date" id="reservation-date" name="reservation-date" required>
+            </div>
+            <div class="form-group">
+                <label for="delivery-date">Día de Entrega</label>
+                <input type="date" id="delivery-date" name="delivery-date" required>
+            </div>
+            <div class="form-group">
+                <label for="status">Estado</label>
+                <p class="status-text">Pendiente de Revisión por Administrador</p>
+                <input type="hidden" id="status" name="status" value="Pendiente">
+            </div>
+            <div class="form-group">
+                <label for="comments">Comentarios (Opcional)</label>
+                <textarea id="comments" name="comments" placeholder="Añade cualquier comentario adicional"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Estado Inicial de Solicitud</label>
+                <p class="status-text">Pendiente de Revisión e Inspección Física por Administrador</p>
+                <input type="hidden" id="status" name="status" value="Pendiente">
+            </div>
+            
+            <button type="submit" class="submit-btn">Registrar Reserva</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ConectUS </h4>
+                <p>© 2026 Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Útiles</h4>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contáctanos</h4>
+                <p>Email: ConectUS@gmail.com</p>
+                <p>Teléfono: 3013602151</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Obtener elementos del formulario
+        const reservationDateInput = document.getElementById('reservation-date');
+        const deliveryDateInput = document.getElementById('delivery-date');
+        const reservationTimeInput = document.getElementById('reservation-time');
+        const form = document.getElementById('reservation-form');
+
+        // Actualizar restricciones de Día de Entrega cuando cambie Día de Reserva
+        reservationDateInput.addEventListener('change', () => {
+            const reservationDate = new Date(reservationDateInput.value);
+            if (reservationDateInput.value) {
+                // Establecer Día de Entrega mínimo (el día siguiente a Día de Reserva)
+                const minDeliveryDate = new Date(reservationDate);
+                minDeliveryDate.setDate(reservationDate.getDate() + 1);
+                deliveryDateInput.min = minDeliveryDate.toISOString().split('T')[0];
+
+                // Establecer Día de Entrega máximo (30 días después de Día de Reserva)
+                const maxDeliveryDate = new Date(reservationDate);
+                maxDeliveryDate.setDate(reservationDate.getDate() + 30);
+                deliveryDateInput.max = maxDeliveryDate.toISOString().split('T')[0];
+
+                // Actualizar Tiempo Reserva si ambas fechas están seleccionadas
+                if (deliveryDateInput.value) {
+                    const deliveryDate = new Date(deliveryDateInput.value);
+                    const timeDiff = (deliveryDate - reservationDate) / (1000 * 60 * 60 * 24);
+                    if (timeDiff >= 1 && timeDiff <= 30) {
+                        reservationTimeInput.value = Math.round(timeDiff);
+                    }
+                }
+            }
+        });
+
+        // Actualizar Tiempo Reserva cuando cambie Día de Entrega
+        deliveryDateInput.addEventListener('change', () => {
+            if (reservationDateInput.value && deliveryDateInput.value) {
+                const reservationDate = new Date(reservationDateInput.value);
+                const deliveryDate = new Date(deliveryDateInput.value);
+                const timeDiff = (deliveryDate - reservationDate) / (1000 * 60 * 60 * 24);
+                if (timeDiff >= 1 && timeDiff <= 30) {
+                    reservationTimeInput.value = Math.round(timeDiff);
+                } else {
+                    reservationTimeInput.value = '';
+                    deliveryDateInput.value = '';
+                    alert('El Día de Entrega debe estar entre 1 y 30 días después del Día de Reserva.');
+                }
+            }
+        });
+
+        
+
+        // Validar formulario al enviar
+        form.addEventListener('submit', (e) => {
+            const reservationDate = new Date(reservationDateInput.value);
+            const deliveryDate = new Date(deliveryDateInput.value);
+            const timeDiff = (deliveryDate - reservationDate) / (1000 * 60 * 60 * 24);
+
+            if (deliveryDate <= reservationDate) {
+                e.preventDefault();
+                alert('El Día de Entrega debe ser posterior al Día de Reserva.');
+            } else if (timeDiff > 30) {
+                e.preventDefault();
+                alert('El período de reserva no puede exceder 30 días.');
+            } else if (reservationTimeInput.value < 1 || reservationTimeInput.value > 30) {
+                e.preventDefault();
+                alert('El Tiempo de Reserva debe estar entre 1 y 30 días.');
+            }
+        });
+    </script>
+</body>
+</html>
